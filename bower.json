@@ -1,0 +1,11 @@
+{
+	"name": "ASP.NET",
+	"private": true,
+  "dependencies": {
+    "knockout": "~3.4.0",
+    "bootstrap": "~3.3.6",
+    "bootstrap-theme-bootswatch-flatly":  "~1.0.2",
+    "gmaps": "~0.4.24",
+    "font-awesome": "~4.6.2"
+  }
+}

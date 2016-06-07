@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Neighborhood Map</title>
+	<meta charset="utf-8" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap-theme-bootswatch-flatly/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" />
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="sidebar pull-right">
+        <div class="title">
+            <h3>Places to eat at Wichita</h3>
+        </div>
+        <div class="filter input-group input-group-sm">
+            <input data-bind="value: filterText, event: { 'keyup': onKeyPressFilterText }" placeholder="Filter Locations" class="form-control" />
+            <span class="input-group-btn">
+                <button data-bind="click: filterRestaurants" class="btn btn-default">
+                    <i class="fa fa-search"></i> Filter
+                </button>
+            </span>
+        </div>
+
+        <ul class="list-group list-overflow-scroll list-item-pointer" data-bind="foreach: filteredRestaurants()">
+            <li class="list-group-item" data-bind="text: name, click: selectRestaurant" ></li>
+        </ul>
+    </div>
+    <div id="body">
+        <div class="header-bar">
+            <i class="fa fa-bars fa-2x pull-right toggle-sidebar" onclick="toggleSidebar();"></i>
+        </div>
+        <div id="map"></div>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="bower_components/gmaps/gmaps.min.js"></script>
+    <script src="bower_components/oauth-1.0a/oauth-1.0a.js"></script>
+    <script src="bower_components/knockout/build/knockout-raw.js"></script>
+    <!--<script src="bower_components/knockout/dist/knockout.js"></script>-->
+    <script src="js/locations.js"></script>
+    <script src="js/view_models/restaurants.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function toggleSidebar() {
+            $(".sidebar").toggleClass("sidebar-hidden");
+            $(".toggle-sidebar").toggleClass("toggle-sidebar-full");
+        }
+    </script>
+</body>
+</html>

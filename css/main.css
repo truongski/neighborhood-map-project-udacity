@@ -1,0 +1,64 @@
+﻿
+/** Stretch the map */
+body, html, #body, #map {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+div#map {
+    position: relative;
+    height: calc(100% - 50px);
+}
+
+.sidebar {
+    position: absolute;
+    right: 0;
+
+    height: 100%;
+    width: 350px;
+    padding: 10px;
+
+    color: #808080;
+    background-color: #00338e;
+
+    z-index: 10;  
+
+    transition: right linear 0.2s;
+}
+
+.sidebar-hidden {
+    right: -350px;
+}
+
+.header-bar {
+    height: 50px;
+
+    background-color: #212137;
+}
+
+.toggle-sidebar {
+    position: absolute;
+    right: 350px;
+    padding: 10px;
+
+    cursor: pointer;
+    transition: right linear 0.2s;
+}
+
+.toggle-sidebar-full {
+    right: 0;
+}
+
+.list-overflow-scroll {
+    height: calc(100% - 90px);
+    padding: 0;
+    margin-bottom: 0;
+
+    overflow-y: auto;
+}
+
+.list-item-pointer li {
+    cursor: pointer;
+}

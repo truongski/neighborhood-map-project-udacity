@@ -1,0 +1,5 @@
+Open index.html.
+The initial screen will show the sidebar and Google Map with list items and markers. 
+The filter is used to filter restaurants by name. Any word in the restaurants name that starts with the filter text is included. 
+Clicking on the list item or marker will open an info window showing some information from Foursquare's API. The data is pulled when the page is loaded. 
+There is a toggle for the sidebar at the right of the top bar. 
