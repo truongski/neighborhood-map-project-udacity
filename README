@@ -1,3 +1,5 @@
+Use npm on package.json to install dev dependencies.
+Use bower on bower.json to install web dependencies.
 Open index.html.
 The initial screen will show the sidebar and Google Map with list items and markers. 
 The filter is used to filter restaurants by name. Any word in the restaurants name that starts with the filter text is included. 
