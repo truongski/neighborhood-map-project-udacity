@@ -1,14 +1,17 @@
 ﻿
 /** Stretch the map */
-body, html, #body, #map {
+body, 
+html, 
+#body, 
+#map {
     height: 100%;
     width: 100%;
     margin: 0;
     padding: 0;
 }
 
-div#map {
-    position: relative;
+.map-box {
+        position: relative;
     height: calc(100% - 50px);
 }
 
