@@ -4,7 +4,7 @@
 
 function Restaurant(name, location) {
     var self = this;
-    self.name = ko.observable(name);
+    self.name = name;
 
     // dict of { lat, lng }
     self.location = location;
@@ -50,12 +50,9 @@ function RestaurantsViewModel(filterText) {
             if (filterText === "")
                 return true;
 
-            // Check all words in the name for a match
-            var tokens = restaurant.name().toLowerCase().split(" ");
-            for (var i = 0; i < tokens.length; i++) {
-                if (tokens[i].startsWith(filterText))
-                    return true;
-            }
+            // Check for matching substring
+            if (restaurant.name.toLowerCase().indexOf(filterText) > -1)
+                return true;
 
             return false;
         });

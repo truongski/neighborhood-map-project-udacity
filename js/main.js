@@ -20,8 +20,8 @@
 
     // sort restaurants by name
     app.viewModel.restaurants = app.viewModel.restaurants.sort(function (a, b) {
-        var aa = a.name();
-        var bb = b.name();
+        var aa = a.name;
+        var bb = b.name;
         return aa < bb ? -1 : (aa > bb ? 1 : 0);
     });
 
@@ -39,17 +39,14 @@
             var restaurants = viewModel.restaurants();
             for (var i = 0; i < restaurants.length; i++) {
                 var restaurant = restaurants[i];
-                if (restaurant.map !== undefined)
-                    restaurant.map.marker.setMap(null);
+                restaurant.map.marker.setMap(null);
             }
 
             // Set current filtered locations
             var filteredRestaurants = viewModel.filteredRestaurants();
             for (var i = 0; i < filteredRestaurants.length; i++) {
                 var restaurant = filteredRestaurants[i];
-                console.log(restaurant);
-                if (restaurant.map !== undefined)
-                    restaurant.map.marker.setMap(restaurant.map.gmaps.map);
+                restaurant.map.marker.setMap(restaurant.map.gmaps.map);
             }
         }
 
@@ -64,7 +61,7 @@
             var marker = app.gmaps.addMarker({
                 lat: newRestaurant.location.lat,
                 lng: newRestaurant.location.lng,
-                title: newRestaurant.name(),
+                title: newRestaurant.name,
                 infoWindow: infoWindow,
                 restaurant: newRestaurant,
                 click: function () {
@@ -90,7 +87,7 @@
                         client_id: app.fourSquareClientId,
                         client_secret: app.fourSquareClientSecret,
                         v: "20150401",
-                        query: newRestaurant.name()
+                        query: newRestaurant.name
                     }
                 }).done(function (data) {
                     var venue = data.response.venues[0];
@@ -107,7 +104,7 @@
                             '<p>Phone number: ' + phone + '</p>');
                     } else {
                         restaurant.map.infoWindow.setContent(
-                            '<strong>' + restaurant.name() + '</strong>' +
+                            '<strong>' + restaurant.name + '</strong>' +
                             '<p>No data found on FourSquare</p>');
                     }
                 }).fail(function (data) {
