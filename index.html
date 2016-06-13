@@ -23,7 +23,7 @@
         </div>
 
         <ul class="list-group list-overflow-scroll list-item-pointer" data-bind="foreach: filteredRestaurants()">
-            <li class="list-group-item" data-bind="text: name, click: selectRestaurant" ></li>
+            <li class="list-group-item" data-bind="text: name, click: selectRestaurant"></li>
         </ul>
     </div>
     <div id="body">
@@ -32,15 +32,28 @@
         </div>
         <div id="map"></div>
     </div>
-    <script src="https://maps.googleapis.com/maps/api/js"></script>
+
+    <script src="bower_components/knockout/dist/knockout.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+    <!-- Google Maps callbacks -->
+    <script>
+        function gmapsSuccess() {
+            // from main.js
+            app.initMap();
+        }
+
+        function gmapsError() {
+            $("#map").html("<strong>There was a problem loading Google Maps. Please <b>refresh</b> the page or contact the administrator.</strong>")
+        }
+    </script>
+    <script async src="https://maps.googleapis.com/maps/api/js?callback=gmapsSuccess" onerror="gmapsError()"></script>
     <script src="bower_components/gmaps/gmaps.min.js"></script>
-    <script src="bower_components/oauth-1.0a/oauth-1.0a.js"></script>
-    <script src="bower_components/knockout/build/knockout-raw.js"></script>
-    <!--<script src="bower_components/knockout/dist/knockout.js"></script>-->
+
     <script src="js/locations.js"></script>
     <script src="js/view_models/restaurants.js"></script>
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="js/main.js"></script>
+
     <script>
         function toggleSidebar() {
             $(".sidebar").toggleClass("sidebar-hidden");
