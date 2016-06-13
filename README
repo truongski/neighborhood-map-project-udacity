@@ -1,7 +1,9 @@
-Use npm on package.json to install dev dependencies.
-Use bower on bower.json to install web dependencies.
+In the website's root directory:
+Type `npm install` to install dev dependencies. To get npm, go to https://docs.npmjs.com/getting-started/installing-node and follow the instructions.
+Type `bower install` to install web dependencies. 
+
 Open index.html.
 The initial screen will show the sidebar and Google Map with list items and markers. 
-The filter is used to filter restaurants by name. Any word in the restaurants name that starts with the filter text is included. 
+The filter is used to filter restaurants by name. If any part of the restaurant's name matches the filter text, it is included in the filter. 
 Clicking on the list item or marker will open an info window showing some information from Foursquare's API. The data is pulled when the page is loaded. 
 There is a toggle for the sidebar at the right of the top bar. 
