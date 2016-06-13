@@ -12,30 +12,27 @@ div#map {
     height: calc(100% - 50px);
 }
 
+.title h3 {
+    margin-top: 0;
+    height: 28px;
+    overflow: hidden;
+}
+
 .sidebar {
     position: absolute;
     right: 0;
-
     height: 100%;
     width: 350px;
     padding: 10px;
-
     color: #808080;
     background-color: #00338e;
-
-    z-index: 10;  
-
+    z-index: 10;
     transition: right linear 0.2s;
 }
 
+
 .sidebar-hidden {
     right: -350px;
-}
-
-.header-bar {
-    height: 50px;
-
-    background-color: #212137;
 }
 
 .toggle-sidebar {
@@ -46,6 +43,36 @@ div#map {
     cursor: pointer;
     transition: right linear 0.2s;
 }
+
+
+@media (max-width: 640px) {
+    .title h3 {
+        height: 18px;
+        font-size: 16px;
+    }
+
+    .sidebar {
+        width: 200px;
+        padding: 10px;
+    }
+
+
+    .sidebar-hidden {
+        right: -200px;
+    }
+
+    .toggle-sidebar {
+        right: 200px;
+        padding: 10px;
+    }
+}
+
+.header-bar {
+    height: 50px;
+
+    background-color: #212137;
+}
+
 
 .toggle-sidebar-full {
     right: 0;
@@ -60,5 +87,10 @@ div#map {
 }
 
 .list-item-pointer li {
+    height: 43px;
     cursor: pointer;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
